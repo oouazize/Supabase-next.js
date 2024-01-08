@@ -1,7 +1,7 @@
 "use client";
 
 import { createBrowserClient } from "@supabase/ssr";
-import { Database } from "./database.types";
+// import { Database } from "./database.types";
 import { env } from "./env.client";
 
 
@@ -12,7 +12,7 @@ import { env } from "./env.client";
  *   .from('users')
  *   .select();
  */
-export const supabaseForClientComponent = createBrowserClient<Database>(
+export const supabaseForClientComponent = createBrowserClient(
   env.NEXT_PUBLIC_SUPABASE_URL,
   env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 );

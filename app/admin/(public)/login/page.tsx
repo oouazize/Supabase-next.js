@@ -1,3 +1,3 @@
-export default async function Page() {
-  return null;
+export default function page() {
+	return null;
 }

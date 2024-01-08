@@ -2,26 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	@apply relative flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6 bg-primary text-secondary;
+}
+
+section {
+	@apply flex justify-center items-center flex-col;
+}
+
+h1 {
+	@apply font-bold text-xl md:text-2xl
+}
+
+h2 {
+	@apply font-semibold text-lg md:text-xl
+}
+
+.logo_text {
+	@apply max-sm:hidden font-semibold text-lg text-secondary tracking-wide;
+}
+
+.form_input {
+	@apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.black_btn {
+	@apply rounded-full border border-secondary bg-secondary py-1.5 px-5 text-primary transition-all hover:bg-primary hover:text-secondary text-center text-sm flex items-center justify-center;
+}
+
+.outline_btn {
+	@apply rounded-full border border-secondary bg-transparent py-1.5 px-5 text-secondary transition-all hover:bg-secondary hover:text-primary text-center text-sm flex items-center justify-center;
+}
+
+.flex-center {
+	@apply flex justify-center items-center;
+}
+
+.flex-start {
+	@apply flex justify-start items-start;
+}
+
+.flex-end {
+	@apply flex justify-end items-center;
+}
+
+.flex-between {
+	@apply flex justify-between items-center;
 }

@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       user_id: z.string().min(1),
       full_name: z.string().min(1),
     }).safeParse(await request.json());
-
+    
     if (zodResult.success === false) return NextResponse.json({ error: "Invalid form data." }, { status: http.UNPROCESSABLE_ENTITY });
     const req = zodResult.data;
 

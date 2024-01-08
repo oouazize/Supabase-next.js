@@ -1,19 +1,19 @@
 import { cookies } from "next/headers";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { createClient } from "@supabase/supabase-js";
-import { Database } from "./database.types";
+// import { Database } from "./database.types";
 import { env } from "./env.server";
 
 
 
-export const supabaseWithServiceRoleForServer = createClient<Database>(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
+export const supabaseWithServiceRoleForServer = createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
 
 
 
 export function createSupabaseForServerComponent() {
   const cookieStore = cookies();
 
-  const supabase = createServerClient<Database>(
+  const supabase = createServerClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
     env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
@@ -37,7 +37,7 @@ export function createSupabaseForServerComponent() {
 export function createSupabaseForRouteHandler() {
   const cookieStore = cookies();
 
-  const supabase = createServerClient<Database>(
+  const supabase = createServerClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
     env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
@@ -67,7 +67,7 @@ export function createSupabaseForRouteHandler() {
 export function createSupabaseForServerAction() {
   const cookieStore = cookies();
 
-  const supabase = createServerClient<Database>(
+  const supabase = createServerClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
     env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
