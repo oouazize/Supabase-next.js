@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { createSupabaseForServerComponent } from "@/lib/supabase.server";
+import SignOut from "@/components/SignOut";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,11 +34,7 @@ export default async function RootLayout({
 							<Link href="/business/new" className="outline_btn">
 								Create a new business
 							</Link>
-							<form action="/sign-out" method="post">
-								<button type="submit" className="black_btn">
-									Sign Out
-								</button>
-							</form>
+							<SignOut />
 						</div>
 					)}
 				</nav>

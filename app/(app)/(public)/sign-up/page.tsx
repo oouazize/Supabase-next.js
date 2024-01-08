@@ -27,8 +27,8 @@ export default function Page() {
 			<h1>Authentication Page</h1>
 			<section>
 				{/* Email Sign-Up Form */}
-				<div className="flex flex-col gap-4">
-					<h2>Email Sign-Up</h2>
+				<div className="flex-center flex-col gap-4">
+					<h2>Sign Up</h2>
 					<input
 						className="form_input"
 						type="text"
@@ -50,7 +50,7 @@ export default function Page() {
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 					/>
-					<button className="black_btn" onClick={handleEmailSignUp}>
+					<button className="w-full black_btn" onClick={handleEmailSignUp}>
 						Sign Up
 					</button>
 					<Link href="/login" className="outline_btn">

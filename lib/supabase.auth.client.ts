@@ -4,23 +4,10 @@ import { env } from "@/lib/env.client";
 import { supabaseForClientComponent } from "@/lib/supabase.client";
 import * as Supabase from "@supabase/supabase-js";
 
-export async function authenticateUsingGoogle(): Promise<never> {
+export async function authenticateUsingGoogle() {
 	const redirectTo = `${env.NEXT_PUBLIC_ORIGIN}/api/supabase/auth/callback`;
 
-	console.error(
-		`` +
-			`Add this redirect url to the Supabase settings.\n` +
-			"Redirect URL:" +
-			redirectTo +
-			"\n" +
-			"Supabase Settings:" +
-			`https://supabase.com/dashboard/project/_/auth/url-configuration` +
-			"After that, remove this error message from the code."
-	);
-	alert("Check the console log to fix this issue.");
-	throw new Error("Redirect URL not configured on Supabase.");
-
-	return (await supabaseForClientComponent.auth.signInWithOAuth({
+	return await supabaseForClientComponent.auth.signInWithOAuth({
 		provider: "google",
 		options: {
 			redirectTo,
@@ -30,7 +17,7 @@ export async function authenticateUsingGoogle(): Promise<never> {
 			},
 			// scopes: "https://www.googleapis.com/auth/drive.file"
 		},
-	})) as never;
+	});
 }
 
 export async function authenticateUsingPassword(

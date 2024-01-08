@@ -15,8 +15,7 @@ export default function Page() {
 	const [password, setPassword] = useState("");
 
 	const handleGoogleSignIn = async () => {
-		const res = await authenticateUsingGoogle();
-		router.push("/");
+		await authenticateUsingGoogle();
 	};
 
 	const handleEmailSignIn = async () => {
@@ -28,14 +27,14 @@ export default function Page() {
 		<div className="w-full">
 			<h1>Authentication Page</h1>
 			<section>
-				{/* Google Sign-In Button */}
-				<button className="black_btn" onClick={handleGoogleSignIn}>
-					Sign In with Google
-				</button>
-
 				{/* Email Sign-In Form */}
-				<div className="flex flex-col gap-4">
-					<h2>Email Sign-In</h2>
+				<div className="flex-center flex-col gap-4">
+					<h2>Sign In</h2>
+					{/* Google Sign-In Button */}
+					<button className="w-full black_btn" onClick={handleGoogleSignIn}>
+						Sign In with Google
+					</button>
+					<p>or</p>
 					<input
 						className="form_input"
 						type="email"
@@ -50,10 +49,10 @@ export default function Page() {
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 					/>
-					<button className="black_btn" onClick={handleEmailSignIn}>
+					<button className="w-full black_btn" onClick={handleEmailSignIn}>
 						Sign In
 					</button>
-					<Link href='/forgot-password/'>Forget Password ?</Link>
+					<Link href="/forgot-password/">Forget Password ?</Link>
 					<Link href="/sign-up" className="outline_btn">
 						Sign Up
 					</Link>

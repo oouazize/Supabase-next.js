@@ -63,10 +63,10 @@ export async function middleware(request: NextRequest) {
 	);
 
 	const {
-		data: { session },
-	} = await supabase.auth.getSession();
+		data: { user },
+	} = await supabase.auth.getUser();
 
-	const user = session?.user;
+	// const user = session?.user;
 
 	// Defining the protected routes
 	const protectedRoutes = ["/login", "/sign-up", '/forgot-password', '/reset-password', '/verify-reset-password'];
