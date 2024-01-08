@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { createSupabaseForServerComponent } from "@/lib/supabase.server";
 import SignOut from "@/components/SignOut";
+import { env } from "@/lib/env.server";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +22,9 @@ export default async function RootLayout({
 }) {
 	const supabase = createSupabaseForServerComponent();
 
-	const { data: { user } } = await supabase.auth.getUser();
+	const {
+		data: { user },
+	} = await supabase.auth.getUser();
 
 	return (
 		<html lang="en">
@@ -40,6 +44,18 @@ export default async function RootLayout({
 				</nav>
 				<Toaster position="bottom-right" />
 				{children}
+				<Script
+					src={`https://www.googletagmanager.com/gtag/js?id=${env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+				/>
+				<Script id="google-analytics">
+					{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', '${env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
+        `}
+				</Script>
 			</body>
 		</html>
 	);
