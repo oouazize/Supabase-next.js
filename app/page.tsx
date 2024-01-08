@@ -1,5 +1,3 @@
-'use server';
-
 import Card from "@/components/Card";
 import { createSupabaseForServerComponent } from "@/lib/supabase.server";
 

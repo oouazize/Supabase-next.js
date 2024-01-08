@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
 	if (!user) {
 		console.error("User is not authorized");
-		return NextResponse.redirect(new URL("/", request.url), { status: 302 });
+		return NextResponse.redirect(new URL("/login", request.url), { status: 302 });
 	}
 
 	const { businessName } = await request.json();

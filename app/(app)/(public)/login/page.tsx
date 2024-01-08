@@ -20,7 +20,10 @@ export default function Page() {
 
 	const handleEmailSignIn = async () => {
 		const { error } = await authenticateUsingPassword({ email, password });
-		!error ? router.push("/") : toast.error(error.message);
+		if (!error) {
+			router.push("/");
+			router.refresh();
+		} else toast.error(error.message);
 	};
 
 	return (

@@ -26,7 +26,10 @@ export default function Form({ id }: { id?: string }) {
 				body: JSON.stringify(data),
 			});
 			if (!response.ok) toast.error(response.statusText);
-			else router.push(response.url);
+			else {
+				router.push(response.url);
+				router.refresh();
+			}
 		} catch (error) {
 			console.error("Error insering business:", error);
 		}
