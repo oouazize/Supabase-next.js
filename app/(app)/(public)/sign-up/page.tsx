@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signupUsingPassword } from "@/lib/supabase.auth.client";
+import Link from "next/link";
+import toast from "react-hot-toast";
 
 export default function Page() {
 	const router = useRouter();
@@ -17,6 +19,7 @@ export default function Page() {
 			password,
 		});
 		if (!error) router.push("/confirm-your-email"); // Redirect to dashboard after successful sign-up
+		else toast.error(error.message)
 	};
 
 	return (
@@ -50,6 +53,9 @@ export default function Page() {
 					<button className="black_btn" onClick={handleEmailSignUp}>
 						Sign Up
 					</button>
+					<Link href="/login" className="outline_btn">
+						Sign In
+					</Link>
 				</div>
 			</section>
 		</div>

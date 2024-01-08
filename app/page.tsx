@@ -8,10 +8,9 @@ export default async function Page() {
 	const supabase = createSupabaseForServerComponent();
 
 	const { data } = await supabase.from("Business").select('*');
-	console.log(data);
 
 	return (
-		<div className="w-full h-full flex-center flex-wrap gap-6">
+		<div className="w-full h-full flex flex-wrap gap-6">
 			{data?.map((item) => (
 				<Card key={item.id} data={item} />
 			))}

@@ -7,6 +7,7 @@ import {
 	authenticateUsingPassword,
 } from "@/lib/supabase.auth.client";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 export default function Page() {
 	const router = useRouter();
@@ -52,6 +53,10 @@ export default function Page() {
 					<button className="black_btn" onClick={handleEmailSignIn}>
 						Sign In
 					</button>
+					<Link href='/forgot-password/'>Forget Password ?</Link>
+					<Link href="/sign-up" className="outline_btn">
+						Sign Up
+					</Link>
 				</div>
 			</section>
 		</div>

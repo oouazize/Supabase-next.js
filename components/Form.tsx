@@ -60,7 +60,7 @@ export default function Form({ id }: { id?: string }) {
 			className="w-full h-full flex flex-col gap-6"
 		>
 			<input
-				onChange={(e) => setBusinessName(e.target.value)}
+				onChange={(e) => setBusinessName(e.target.value.trim())}
 				className="form_input"
 				placeholder="Business name"
 			/>
